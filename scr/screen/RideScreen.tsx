@@ -117,7 +117,6 @@ export const RideScreen = () => {
       </View>
 
       <View style={mapyStyle.btnContainer}>
-        {console.log(ride)}
         {(ride.status === 'accepted' || ride.status === 'started') && (
           <Button style={mapyStyle.btnDecline} onPress={() => onCancel()}>
             Cancel
