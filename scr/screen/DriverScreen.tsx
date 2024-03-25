@@ -123,8 +123,12 @@ export const DriverScreen = () => {
               Destination: {markerData?.destination.description}
             </Text>
           </View>
-          <View>
-            {/* <Button>Dismiss</Button> */}
+          <View style={mapyStyle.btnContainer}>
+            <Button
+              style={mapyStyle.btnDecline}
+              onPress={() => setIsVisible(false)}>
+              Cancel
+            </Button>
             <Button
               style={mapyStyle.btnAccept}
               onPress={() => onAccept(markerData)}>
@@ -151,10 +155,24 @@ const mapyStyle = StyleSheet.create({
   name: {
     fontSize: branding.font.md,
   },
-  btnAccept: {
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
     marginTop: 20,
+  },
+  btnDecline: {
+    backgroundColor: branding.color.red,
+    color: '#fff',
+    marginVertical: 5,
+    padding: 15,
+    width: '49%',
+  },
+  btnAccept: {
     backgroundColor: branding.color.green,
     padding: 15,
+    width: '49%',
   },
   textDetails: {
     fontSize: branding.font.md,
