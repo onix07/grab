@@ -58,6 +58,14 @@ export const DriverScreen = () => {
     setIsVisible(false);
   };
 
+  const getNearbyPassenger = () => {
+    if (userData.length > 0) {
+      dispatch(setUser(userData));
+    } else {
+      Alert.alert('Passenger Request', 'No passanger nearby');
+    }
+  };
+
   useEffect(() => {
     Geolocation.getCurrentPosition(
       data => {
@@ -80,8 +88,8 @@ export const DriverScreen = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(setUser(userData));
-  });
+    getNearbyPassenger();
+  }, []);
 
   return (
     <Container>
